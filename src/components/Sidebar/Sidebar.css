@@ -59,8 +59,73 @@
     padding-right: 10px;
     cursor: pointer;
 }
+/*
 @media(max-width:600px){
     .sidebar{
         display: none;
+    }
+}*/
+@media(max-width: 600px) {
+  .sidebar {
+    width: 60px;          /* shrink sidebar width */
+    padding: 15px 10px;   /* adjust padding */
+  }
+
+  .sidebar .new-chat {
+    flex-direction: column; /* stack icon + text vertically */
+    padding: 8px;
+    gap: 5px;
+  }
+
+  .sidebar .new-chat p {
+    display: block;        /* always show text */
+    font-size: 12px;
+  }
+
+  .sidebar .recent-entry p {
+    display: block;
+    font-size: 12px;
+  }
+
+  .sidebar img {
+    width: 18px;           /* smaller icons */
+  }
+}
+
+/* Sidebar default */
+.sidebar {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f0f4f9;
+    padding: 25px 15px;
+    width: 250px; /* full sidebar width */
+    transition: width 0.3s;
+}
+
+/* Mobile collapsed sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50px; /* only show hamburger */
+        padding: 15px 10px;
+    }
+
+    .sidebar.extended {
+        width: 250px; /* full width when extended */
+    }
+
+    .new-chat p,
+    .recent-entry p,
+    .bottom-item p,
+    .recent-title {
+        display: none; /* hide text by default */
+    }
+
+    .sidebar.extended .new-chat p,
+    .sidebar.extended .recent-entry p,
+    .sidebar.extended .bottom-item p,
+    .sidebar.extended .recent-title {
+        display: block; /* show text when extended */
     }
 }
